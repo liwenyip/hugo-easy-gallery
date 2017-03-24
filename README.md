@@ -3,7 +3,8 @@ Automagical css image gallery in [Hugo](https://gohugo.io/) using shortcodes, wi
 
 ## Demo
 
-Demo at https://www.liwen.id.au/heg/
+Feature demonstration at https://www.liwen.id.au/heg/
+Real-life example at https://www.liwen.id.au/arduino-rf-codes/
 
 ## Image Gallery Features
 
