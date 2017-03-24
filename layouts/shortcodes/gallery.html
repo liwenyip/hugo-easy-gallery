@@ -1,0 +1,6 @@
+<!--
+Put this file in /layouts/shortcodes/gallery.html
+-->
+<div class="gallery caption-position-{{ with .Get "caption-position" }}{{.}}{{else}}bottom{{end}} caption-effect-{{ with .Get "caption-effect" }}{{.}}{{else}}slide{{end}} hover-effect-{{ with .Get "hover-effect" }}{{.}}{{else}}zoom{{end}} {{ if ne (.Get "hover-transition") "none" }}hover-transition{{end}}" itemscope itemtype="http://schema.org/ImageGallery">
+{{ .Inner }}
+</div>
