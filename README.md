@@ -7,12 +7,18 @@ Demo at https://www.liwen.id.au/heg/
 
 ## Image Gallery Features
 
+- Custom `{{< figure >}}` shortcode that enables new features but is backwards-compatible with Hugo's built-in `{{< figure >}}`shortcode
+- Use the `{{< figure >}}` shortcode by itself to enable pretty captions
+- Put multiple `{{< figure >}}` shortcodes inside a `{{< gallery >}}` to create a pretty image gallery
 - Gallery is responsive, images are scaled/cropped to fill square (or other evenly-sized) tiles
+- Pretty captions appear/slide/fade upon hovering over the image 
 - Optionally make gallery images zoom, grow, shrink, slide up, or slide down upon hover
 - Only requires 3.6kB of CSS (unminified; you can minify it if you want)
+- CSS is automatically loaded the first time you use the `{{< figure >}}` shortcode on each page
 
 ## PhotoSwipe Features
 
+- Load PhotoSwipe by calling the `{{< load-photoswipe >}}` shortcode anywhere in your post
 - Loads all of the `<figure>` elements in your post, regardless of where in your post they appear, into a lightbox/carousel style image gallery
 - Works with any existing `<figure>` elements/shortcodes in your posts
 - Does not require you to [pre-define the image sizes](http://photoswipe.com/documentation/faq.html#image-size) (the initialisation script pre-loads the image to determine its size; you can optionally pre-define the image size if you want to avoid this pre-loading)
@@ -27,11 +33,14 @@ Put files in following places:
 - /static/js/load-photoswipe.js
 - /static/css/hugo-easy-gallery.js
 
+**NB `load-photoswipe.html` loads jQuery from `cdnjs.cloudflare.com`.**
 
 - If your template already loads jQuery in the header, you can delete the jQuery link in `load-photoswipe.html`.
 - If your template already loads jQuery in the footer,  you should `load-photoswipe.js` from the footer instead of in `load-photoswipe.html`.
 
+If you want, you could (depending on a front matter param) conditionally load `load-photoswipe.html` or its contents from the footer of your template.  But I've consciously chosen to load PhotoSwipe using a shortcode so that you don't have to modify your template if you don't want to.
 
+## `{{< figure >}}` shortcode usage
 
 Specifying your image files:
 
@@ -45,9 +54,15 @@ Optional parameters:
 - `size` (e.g. `size="1024x768"`) pre-defines the image size for PhotoSwipe. Use this option if you don't want to pre-load the linked image to determine its size.
 - `class` allows you to set any custom classes you want on the `<figure>` tag.
 
+Optional parameters for standalone `{{< figure >}}` shortcodes only (i.e. don't use on `{{< figure >}}` inside `{{< gallery >}}` - strange things may happen if you do): 
 
+- `caption-position` and `caption-effect` work the same as for the `{{< gallery >}}` shortcode (see below). 
+- `width` defines the [`max-width`](https://www.w3schools.com/cssref/pr_dim_max-width.asp) of the image displayed on the page. If using a thumbnail for a standalone figure, set this equal to your thumbnail's native width to make the captions behave properly (or feel free to come up with a better solution and submit a pull request :-)). Also use this option if you don't have a thumbnail and you don't want the hi-res image to take up the entire width of the screen/container. 
+- `class="no-photoswipe"` prevents a `<figure>` from being loaded into PhotoSwipe
 
+## `{{< gallery >}}` shortcode usage
 
+Enclose your `{{< figure >}}` shortcodes in `{{< gallery >}}` and `{{< /gallery >}}`
 
 Optional parameters:
 
@@ -72,6 +87,7 @@ Optional parameters:
 
 ## PhotoSwipe usage
 
+- Call `{{< load-photoswipe >}}` **once** on each page where you want to use PhotoSwipe.
 - It doesn't matter where on the page.
 - If you don't load PhotoSwipe, each figure will instead have a good ol' fashioned hyperlink to a bigger image (or - if you haven't specified a bigger image - the same one).
 
