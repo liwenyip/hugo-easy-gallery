@@ -1,3 +1,8 @@
+/*
+Put this file in /static/js/load-photoswipe.js
+Documentation and licence at https://github.com/liwenyip/hugo-easy-gallery/
+*/
+
 /* TODO: Make the share function work */
 $( document ).ready(function() {
 	/*
