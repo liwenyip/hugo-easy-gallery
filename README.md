@@ -11,6 +11,7 @@ Automagical css image gallery in [Hugo](https://gohugo.io/) using shortcodes, wi
 - Custom `{{< figure >}}` shortcode that enables new features but is backwards-compatible with Hugo's built-in `{{< figure >}}`shortcode
 - Use the `{{< figure >}}` shortcode by itself to enable pretty captions
 - Put multiple `{{< figure >}}` shortcodes inside a `{{< gallery >}}` to create a pretty image gallery
+- **Point `{{< gallery >}}` at a directory to generate a gallery of all images in that directory**
 - Gallery is responsive, images are scaled/cropped to fill square (or other evenly-sized) tiles
 - Pretty captions appear/slide/fade upon hovering over the image 
 - Optionally make gallery images zoom, grow, shrink, slide up, or slide down upon hover
