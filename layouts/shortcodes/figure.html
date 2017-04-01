@@ -8,10 +8,9 @@ Documentation and licence at https://github.com/liwenyip/hugo-easy-gallery/
 {{- $.Page.Scratch.Add "figurecount" 1 -}}
 <!-- use either src or link-thumb for thumbnail image -->
 {{- $thumb := .Get "src" | default (printf "%s." (.Get "thumb") | replace (.Get "link") ".") }}
-<style>.gallery .img{{$.Page.Scratch.Get "figurecount"}} {background-image: url('{{ $thumb }}');}</style><!-- ^background image is applied this way to ensure it is only shown when inside a .gallery -->
-<div class="box {{ with .Get "caption-position" }}fancy-figure caption-position-{{.}}{{end}} {{ with .Get "caption-effect" }}caption-effect-{{.}}{{end}}" {{ with .Get "width" }}style="max-width:{{.}}"{{end}}>
+<div class="box{{ with .Get "caption-position" }} fancy-figure caption-position-{{.}}{{end}}{{ with .Get "caption-effect" }} caption-effect-{{.}}{{end}}" {{ with .Get "width" }}style="max-width:{{.}}"{{end}}>
   <figure {{ with .Get "class" }}class="{{.}}"{{ end }} itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-    <div class="img img{{$.Page.Scratch.Get "figurecount"}}" {{ with .Get "size" }}data-size="{{.}}"{{ end }} >
+    <div class="img"{{ if .Parent }} style="background-image: url('{{ $thumb }}');"{{ end }}{{ with .Get "size" }} data-size="{{.}}"{{ end }}>
       <img itemprop="thumbnail" src="{{ $thumb }}" {{ with .Get "alt" | default (.Get "caption") }}alt="{{.}}"{{ end }}/><!-- <img> hidden if in .gallery -->
     </div>
     {{- if or (or (.Get "title") (.Get "caption")) (.Get "attr")}}
