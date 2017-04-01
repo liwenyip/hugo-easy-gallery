@@ -85,7 +85,26 @@ Optional parameters for standalone `{{< figure >}}` shortcodes only (i.e. don't 
 
 ## `{{< gallery >}}` shortcode usage
 
-Enclose your `{{< figure >}}` shortcodes in `{{< gallery >}}` and `{{< /gallery >}}`
+To specify a directory of image files:
+
+```
+{{< gallery dir="/img/your-directory-of-images/" />}}`
+```
+
+- The images are automatically captioned with the file name.
+- `[image].jpg` is used for the hi-res image, and `[image]-thumb.jpg` is used for the thumbnails.
+- If `[image]-thumb.jpg` doesn't exist, then `[image].jpg` will be used for both hi-res and thumbnail images.
+- The default thumbnail suffix is `-thumb`, but you can specify a different one e.g. `thumb="-small"` or `thumb="_150x150"`.
+
+To specify individual image files:
+
+```
+{{< gallery >}}
+  {{< figure src="image1.jpg" >}}
+  {{< figure src="image2.jpg" >}}
+  {{< figure src="image3.jpg" >}}
+{{< /gallery >}}
+```
 
 Optional parameters:
 
