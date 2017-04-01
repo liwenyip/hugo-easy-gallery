@@ -15,9 +15,10 @@ $( document ).ready(function() {
 		// get properties from child a/img/figcaption elements,
 		var $figure = $(this),
 			$a 		= $figure.find('a'),
+			$img 	= $figure.find('img'),
 			$src	= $a.attr('href'),
-			$title  = $figure.find('figcaption').html(),
-			$msrc	= $figure.find('img').attr('src');
+			$title  = $img.attr('alt'),
+			$msrc	= $img.attr('src');
 		// if data-size on <a> tag is set, read it and create an item
 		if ($a.data('size')) {
 			var $size 	= $a.data('size').split('x');

@@ -114,6 +114,11 @@ Optional parameters:
 - It doesn't matter where on the page.
 - If you don't load PhotoSwipe, each figure will instead have a good ol' fashioned hyperlink to a bigger image (or - if you haven't specified a bigger image - the same one).
 
+You can optionally have different captions on page vs in PhotoSwipe:
+
+- `{{< figure src="image.jpg" alt="This is a caption">}}` or `{{< figure src="image.jpg" caption="This is a caption">}}` will use the same caption both on the page and in PhotoSwipe.
+- `{{< figure src="image.jpg" caption="A short caption" alt="This is a much longer, verbose, comprehensive caption that will be used in PhotoSwipe">}}` will use a different caption in PhotoSwipe.
+
 ## CSS Hackers
 
 `hugo-easy-gallery.css` is designed to provide square tiles in a container with `max-width: 768px`.
