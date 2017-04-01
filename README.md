@@ -81,7 +81,7 @@ Optional parameters for standalone `{{< figure >}}` shortcodes only (i.e. don't 
 
 - `caption-position` and `caption-effect` work the same as for the `{{< gallery >}}` shortcode (see below). 
 - `width` defines the [`max-width`](https://www.w3schools.com/cssref/pr_dim_max-width.asp) of the image displayed on the page. If using a thumbnail for a standalone figure, set this equal to your thumbnail's native width to make the captions behave properly (or feel free to come up with a better solution and submit a pull request :-)). Also use this option if you don't have a thumbnail and you don't want the hi-res image to take up the entire width of the screen/container. 
-- `class="no-photoswipe"` prevents a `<figure>` from being loaded into PhotoSwipe
+- `class="no-photoswipe"` prevents a `<figure>` from being loaded into PhotoSwipe. If you click on the figure you'll instead a good ol' fashioned hyperlink to a bigger image (or - if you haven't specified a bigger image - the same one).
 
 ## `{{< gallery >}}` shortcode usage
 
