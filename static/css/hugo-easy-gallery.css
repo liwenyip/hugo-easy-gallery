@@ -123,6 +123,7 @@ figcaption styles
     font-size: 75%; /* change this if you want bigger text */
     background: rgba(0, 0, 0, 0.5);
     opacity: 1;
+    cursor: pointer;
 }
 .gallery.caption-position-none figcaption,
 .fancy-figure.caption-position-none figcaption  {
