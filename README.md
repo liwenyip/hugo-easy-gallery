@@ -35,7 +35,7 @@ Put files in following places:
 - /layouts/shortcodes/gallery.html
 - /layouts/shortcodes/load-photoswipe.html
 - /static/js/load-photoswipe.js
-- /static/css/hugo-easy-gallery.js
+- /static/css/hugo-easy-gallery.css
 
 **NB `load-photoswipe.html` loads jQuery from `cdnjs.cloudflare.com`.**
 
