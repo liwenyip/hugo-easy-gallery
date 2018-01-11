@@ -17,35 +17,40 @@ $( document ).ready(function() {
 	var items = []; // array of slide objects that will be passed to PhotoSwipe()
 	// for every figure element on the page:
 	$('figure').each( function() {
-		if ($(this).attr('class') == 'no-photoswipe') return true; // ignore any figures where class="no-photoswipe"
-		// get properties from child a/img/figcaption elements,
-		var $figure = $(this),
-			$a 		= $figure.find('a'),
-			$img 	= $figure.find('img'),
-			$src	= $a.attr('href'),
-			$title  = $img.attr('alt'),
-			$msrc	= $img.attr('src');
-		// if data-size on <a> tag is set, read it and create an item
-		if ($a.data('size')) {
-			var $size 	= $a.data('size').split('x');
-			var item = {
-				src		: $src,
-				w		: $size[0],
-				h 		: $size[1],
-				title 	: $title,
-				msrc	: $msrc
-			};
-			console.log("Using pre-defined dimensions for " + $src);
-		// if not, set temp default size then load the image to check actual size
-		} else {
-			var item = {
-				src		: $src,
-				w		: 800, // temp default size
-				h 		: 600, // temp default size
-				title 	: $title,
-				msrc	: $msrc
-			};
-			console.log("Using default dimensions for " + $src);
+    if ($(this).attr('class') == 'no-photoswipe') return true; // ignore any figures where class="no-photoswipe"
+    // get properties from child a/img/figcaption elements,
+    var $figure = $(this)
+      $a            = $figure.find('a')
+    , $img          = $figure.find('div').find('img')
+    , $footer       = $figure.find('figcaption').find('footer')
+    , $footer_text  = ($footer.find('a').length ? ($footer.find('a').text().length ? $footer.find('a').text() : $footer.find('a').attr('href') )  :  $footer.text() )
+    , $footer_href  = ($footer.find('a').length ? $footer.find('a').attr('href')  : null)
+    , $title_footer = ($footer_href != null ? "<a href=" + $footer_href + ">"+$footer_text+"</a>" : $footer_text)
+    , $src          = $a.attr('href')
+    , $title        = $img.attr('alt')
+    , $msrc         = $img.attr('src')
+    ;
+    // if data-size on <a> tag is set, read it and create an item
+    if ($a.data('size')) {
+      var $size = $a.data('size').split('x');
+      var item = {
+          src   : $src
+        , w     : $size[0]
+        , h     : $size[1]
+        , title : ($title ? $title : "") + ($title_footer ? ($title ? "<br/><small>" : "") + $title_footer + ($title ? "</small>" : "" ) : "")
+        , msrc  : $msrc
+      };
+      console.log("Using pre-defined dimensions for " + $src);
+      // if not, set temp default size then load the image to check actual size
+    } else {
+      var item = {
+          src   : $src
+        , w     : 800 // temp default size
+        , h     : 600 // temp default size
+        , title : ($title ? $title : "") + ($title_footer ? ($title ? "<br/><small>" : "") + $title_footer + ($title ? "</small>" : "" ) : "")
+        , msrc  : $msrc
+      };
+      console.log("Using default dimensions for " + $src);
 			// load the image to check its dimensions
 			// update the item as soon as w and h are known (check every 30ms)
 			var img = new Image(); 
