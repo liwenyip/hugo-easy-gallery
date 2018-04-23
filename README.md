@@ -49,11 +49,6 @@ Put files in following places:
 - /static/js/load-photoswipe.js
 - /static/css/hugo-easy-gallery.css
 
-**NB `load-photoswipe.html` loads jQuery from `cdnjs.cloudflare.com`.**
-
-- If your template already loads jQuery in the header, you can delete the jQuery link in `load-photoswipe.html`.
-- If your template already loads jQuery in the footer,  you should `load-photoswipe.js` from the footer instead of in `load-photoswipe.html`.
-
 If you want, you could (depending on a front matter param) conditionally load `load-photoswipe.html` or its contents from the footer of your template.  But I've consciously chosen to load PhotoSwipe using a shortcode so that you don't have to modify your template if you don't want to.
 
 ## Theme integration
@@ -66,12 +61,9 @@ Rename `/layouts/shortcodes/load-photoswipe-theme.html` to `/layouts/shortcodes/
 
 Add the following lines to the footer of your template, just before `</body>`:
 
-(Omit the jQuery line if jQuery is already loaded elsewhere in your template; just make sure that jQuery is loaded **before** this code.)
-
 ```html
 <!-- Load PhotoSwipe js if the load-photoswipe shortcode has been used -->
 {{ if ($.Scratch.Get "photoswipeloaded") }}
-<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <script src="/js/load-photoswipe.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js" integrity="sha256-UplRCs9v4KXVJvVY+p+RSo5Q4ilAUXh7kpjyIP5odyc=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js" integrity="sha256-PWHOlUzc96pMc8ThwRIXPn8yH4NOLu42RQ0b9SpnpFk=" crossorigin="anonymous"></script>
