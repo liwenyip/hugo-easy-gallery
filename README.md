@@ -7,7 +7,7 @@ Automagical css image gallery in [Hugo](https://gohugo.io/) using shortcodes, wi
 - Post your question at https://github.com/liwenyip/hugo-easy-gallery/issues.
 - Include a link to a test page that demonstrates the issue you are having
 - Include your source code for the test page
-- Please be patient (I have a busy day job as that has nothing to do with web development or computer science); I will respond eventually. Please DO NOT email me asking for help, you are very unlikely to get a response from me this way.
+- Please be patient (I have a busy day job as that has nothing to do with web development or computer science, so every time I look at issues/PRs it takes me a while to get back up to speed); I will respond eventually. Please DO NOT email me asking for help, you are very unlikely to get a response from me this way.
 
 **Fixed an issue or made an improvement?**
 - Please submit a pull request
