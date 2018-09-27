@@ -3,7 +3,7 @@ Automagical css image gallery in [Hugo](https://gohugo.io/) using shortcodes, wi
 
 **New:** Create a gallery of all images in a directory with just one line of shortcode, see [demo](https://www.liwen.id.au/heg/#gallery-usage).
 
-**Need help?** Post your question at https://github.com/liwenyip/hugo-easy-gallery/issues. Please be patient (I have a busy day job); I will respond eventually. Please DO NOT email me asking for help, you are very unlikely to get a response from me this way.
+**Need help?** Post your question at https://github.com/liwenyip/hugo-easy-gallery/issues. Please be patient (I have a busy day job as that has nothing to do with coding); I will respond eventually. Please DO NOT email me asking for help, you are very unlikely to get a response from me this way.
 
 ## Demo
 
