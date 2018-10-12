@@ -5,7 +5,7 @@ Documentation and licence at https://github.com/liwenyip/hugo-easy-gallery/
 /* Show an alert if this js file has been loaded twice */
 if (window.loadphotoswipejs) {
     window.alert("You've loaded load-photoswipe.js twice. See https://github.com/liwenyip/hugo-easy-gallery/issues/6")
-} 
+}
 var loadphotoswipejs = 1
 
 /* TODO: Make the share function work */
@@ -34,16 +34,16 @@ document.addEventListener('DOMContentLoaded', function() {
             // if not, set temp default size then load the image to check actual size
         } else {
             var item = {
-                src		: $src,
-                w		: 400, // temp default size
-                h 		: 300, // temp default size
-                title 	: $title,
-                msrc	: $msrc
+                src   : $src,
+                w     : 400, // temp default size
+                h     : 300, // temp default size
+                title : $title,
+                msrc  : $msrc
             };
             console.log("Using default dimensions for " + $src);
             // load the image to check its dimensions
             // update the item as soon as w and h are known (check every 30ms)
-            var img = new Image(); 
+            var img = new Image();
             img.src = $src;
             var wait = setInterval(function() {
                 var w = img.naturalWidth,
@@ -53,6 +53,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     item.w = w;
                     item.h = h;
                     console.log("Got actual dimensions for " + img.src);
+
+                    // Update the figure parent div's max width.
+                    var $parentDiv = $figure.parentElement;
+                    if (!$parentDiv.hasOwnProperty("style")) {
+                        $figure.parentElement.style = "max-width: " + w + "px"
+                    }
                 }
             }, 30);
         }
