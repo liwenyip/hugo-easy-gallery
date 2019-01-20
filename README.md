@@ -1,4 +1,7 @@
 # hugo-easy-gallery
+
+**2019-01-20: I'm looking for people to help maintain this project - e.g. review and approve pull requests, which I no longer have time to do. Please contact me if you are interested. Thanks!**
+
 Automagical css image gallery in [Hugo](https://gohugo.io/) using shortcodes, with optional lightbox/carousel gadget using [PhotoSwipe](http://photoswipe.com/) and jQuery.
 
 **New:** Create a gallery of all images in a directory with just one line of shortcode, see [demo](https://www.liwen.id.au/heg/#gallery-usage).
