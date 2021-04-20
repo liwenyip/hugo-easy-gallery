@@ -106,7 +106,7 @@ Optional parameters for standalone `{{< figure >}}` shortcodes only (i.e. don't 
 To specify a directory of image files:
 
 ```
-{{< gallery dir="/img/your-directory-of-images/" />}}`
+{{< gallery dir="/img/your-directory-of-images/" />}}
 ```
 
 - The images are automatically captioned with the file name.
