@@ -3,9 +3,10 @@ Put this file in /layouts/shortcodes/gallery.html
 Documentation and licence at https://github.com/liwenyip/hugo-easy-gallery/
 -->
 <!-- count how many times we've called this shortcode; load the css if it's the first time -->
-{{- if not ($.Page.Scratch.Get "figurecount") }}<link rel="stylesheet" href="/css/hugo-easy-gallery.css" />{{ end }}
-{{- $.Page.Scratch.Add "figurecount" 1 }}
-{{ $baseURL := .Site.BaseURL }}
+{{- if not ($.Page.Scratch.Get "figurecount") -}}<link rel="stylesheet" href="/css/hugo-easy-gallery.css" />{{- end -}}
+{{- $.Page.Scratch.Add "figurecount" 1 -}}
+{{- $baseURL := .Site.BaseURL -}}
+{{- $thumbnailSize := .Get "thumbnail-size" | default "300x300" -}}
 <div class="gallery caption-position-{{ with .Get "caption-position" | default "bottom" }}{{.}}{{end}} caption-effect-{{ with .Get "caption-effect" | default "slide" }}{{.}}{{end}} hover-effect-{{ with .Get "hover-effect" | default "zoom" }}{{.}}{{end}} {{ if ne (.Get "hover-transition") "none" }}hover-transition{{end}}" itemscope itemtype="http://schema.org/ImageGallery">
 	{{- with (.Get "dir") -}}
 		<!-- If a directory was specified, generate figures for all of the images in the directory -->
@@ -19,7 +20,7 @@ Documentation and licence at https://github.com/liwenyip/hugo-easy-gallery/
 				{{- $caption :=  .Name | replaceRE "\\..*" "" | humanize }}<!-- humanized filename without extension -->
 				{{- $linkURL := print $baseURL ($.Get "dir") "/" .Name | absURL }}<!-- absolute URL to hi-res image -->
 				{{- $thumb := .Name | replaceRE "(\\.)" ($thumbext | printf "%s.") }}<!-- filename of thumbnail image -->
-				{{- $thumbexists := where $files "Name" $thumb }}<!-- does a thumbnail image exist? --> 
+				{{- $thumbexists := where $files "Name" $thumb }}<!-- does a thumbnail image exist? -->
 				{{- $thumbURL := print $baseURL ($.Get "dir") "/" $thumb | absURL }}<!-- absolute URL to thumbnail image -->
 				<div class="box">
 				  <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
@@ -34,8 +35,29 @@ Documentation and licence at https://github.com/liwenyip/hugo-easy-gallery/
 				</div>
 			{{- end }}
 		{{- end }}
-	{{- else -}}
-		<!-- If no directory was specified, include any figure shortcodes called within the gallery -->
-	  {{ .Inner }}
+	{{- else }}
+		{{ with .Inner -}}
+			<!-- If no directory was specified, include any figure shortcodes called within the gallery -->
+			{{ . }}
+		{{- else }}
+			<!-- Generate figures for all page resources of type image. -->
+			{{- range $.Page.Resources.ByType "image" -}}
+
+				{{- $thumbnail := .Fill $thumbnailSize -}}
+				<div class="box">
+					<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+						<div class="img" style="background-image: url('{{ $thumbnail.RelPermalink }}');" >
+							<img itemprop="thumbnail" src="{{ $thumbnail.RelPermalink }}" width="{{ $thumbnail.Width }}" height="{{ $thumbnail.Height }}" alt="{{ .Title }}" /><!-- <img> hidden if in .gallery -->
+						</div>
+						{{- with .Title -}}
+						<figcaption>
+							<p>{{ . }}</p>
+						</figcaption>
+						{{- end -}}
+						<a href="{{ .RelPermalink }}" itemprop="contentUrl"></a><!-- put <a> last so it is stacked on top -->
+					</figure>
+				</div>
+			{{- end }}
+		{{- end }}
 	{{- end }}
 </div>
