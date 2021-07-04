@@ -14,15 +14,13 @@ Documentation and licence at https://github.com/liwenyip/hugo-easy-gallery/
       <img itemprop="thumbnail" src="{{ $thumb | relURL }}" {{ with .Get "alt" | default (.Get "caption") }}alt="{{.}}"{{ end }}/><!-- <img> hidden if in .gallery -->
     </div>
     {{ with .Get "link" | default (.Get "src") }}<a href="{{.}}" itemprop="contentUrl"></a>{{ end }}
-    {{- if or (or (.Get "title") (.Get "caption")) (.Get "attr")}}
+    {{- if or (or (.Get "title") (.Get "caption")) (or (.Get "attr") (.Get "attrlink"))  }}
       <figcaption>
         {{- with .Get "title" }}<h4>{{.}}</h4>{{ end }}
-        {{- if or (.Get "caption") (.Get "attr")}}
-          <p>
-            {{- .Get "caption" -}}
-            {{- with .Get "attrlink"}}<a href="{{.}}">{{ .Get "attr" }}</a>{{ else }}{{ .Get "attr"}}{{ end -}}
-          </p>
-        {{- end }}
+        {{- with .Get "caption" }}<p>{{.}}</p>{{ end }}
+        {{- if or (.Get "attr") (.Get "attrlink") }}
+			  <footer><small>{{if .Get "attrlink"}}<a href="{{.Get `attrlink`}}">{{ default (.Get "attrlink") (.Get "attr") }}</a>{{ else }}{{ .Get "attr"}}{{ end }}</small></footer>
+			  {{- end }}
       </figcaption>
     {{- end }}
   </figure>

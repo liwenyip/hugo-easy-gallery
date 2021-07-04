@@ -157,3 +157,12 @@ figcaption p {
     margin: auto; /* override style in theme */
 }
 
+figure img {
+    max-width: 100%;
+}
+
+figure figcaption a {
+    position: relative;
+    color: #CCC;
+    /* text-decoration: none; */
+}
