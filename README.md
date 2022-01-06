@@ -44,6 +44,20 @@ Automagical css image gallery in [Hugo](https://gohugo.io/) using shortcodes, wi
 - Loads PhotoSwipe js and css libraries from `cdnjs.cloudflare.com`
 
 ## Installation
+### As a Theme
+Check out this repo into your `themes/` folder:
+
+```
+git submodule add git@github.com:liwenyip/hugo-easy-gallery.git themes/easy-gallery
+```
+
+Then update your `./config.toml` to load the theme, for example:
+
+```
+theme = ["hugo-coder", "easy-gallery"]
+```
+
+### Manual Installation
 Put files in following places:
 
 - /layouts/shortcodes/figure.html
