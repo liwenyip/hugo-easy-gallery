@@ -1,6 +1,7 @@
 # hugo-easy-gallery
 
-**2019-01-20: I'm looking for people to help maintain this project - e.g. review and approve pull requests, which I no longer have time to do. Please contact me if you are interested. Thanks!**
+**2022-02-28 - Help wanted:**  Unfortunately I am no longer able to maintain this project myself (I have a busy day job that has nothing to do with web development or computer coding, and any spare time is taken up with family + other committments) so I am looking for collaborators to help maintain this project i.e. review and merge pull requests and help with issues. Thanks to [Kishor Bhat](https://github.com/kishorbhat) and [Emiel Hollander](https://github.com/EmielH]) who have already generously volunteered. We could use a few more collaborators - please email me if you're interested :-)
+
 
 Automagical css image gallery in [Hugo](https://gohugo.io/) using shortcodes, with optional lightbox/carousel gadget using [PhotoSwipe](http://photoswipe.com/) and jQuery.
 
@@ -10,13 +11,14 @@ Automagical css image gallery in [Hugo](https://gohugo.io/) using shortcodes, wi
 - Post your question at https://github.com/liwenyip/hugo-easy-gallery/issues.
 - Include a link to a test page that demonstrates the issue you are having
 - Include your source code for the test page
-- Please be patient (I have a busy day job as that has nothing to do with web development or computer science, so every time I look at issues/PRs it takes me a while to get back up to speed); I will respond eventually. Please DO NOT email me asking for help, you are very unlikely to get a response from me this way.
+- Please be patient (As mentioned above I am no longer maintaining this project but others will hopefully be able to help you)
 
 **Fixed an issue or made an improvement?**
 - Please submit a pull request
 - Include a link to a test page
 - Include your source code for the test page
-- Let me know if you are in Sydney and I will thank you with beer :-)
+- Please be patient (As mentioned above I am no longer maintaining this project, but someone will review and maintain your PR, eventually!)
+- Consider volunteering to help maintain this project :-)
 
 ## Demo
 
