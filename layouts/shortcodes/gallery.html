@@ -14,7 +14,7 @@ Documentation and licence at https://github.com/liwenyip/hugo-easy-gallery/
 			<!-- skip files that aren't images, or that include the thumb suffix in their name -->
 			{{- $thumbext := $.Get "thumb" | default "-thumb" }}
 			{{- $isthumb := .Name | findRE ($thumbext | printf "%s\\.") }}<!-- is the current file a thumbnail image? -->
-			{{- $isimg := lower .Name | findRE "\\.(gif|jpg|jpeg|tiff|png|bmp|webp)" }}<!-- is the current file an image? -->
+			{{- $isimg := lower .Name | findRE "\\.(gif|jpg|jpeg|tiff|png|bmp|webp|avif|jxl)" }}<!-- is the current file an image? -->
 			{{- if and $isimg (not $isthumb) }}
 				{{- $caption :=  .Name | replaceRE "\\..*" "" | humanize }}<!-- humanized filename without extension -->
 				{{- $linkURL := print $baseURL ($.Get "dir") "/" .Name | absURL }}<!-- absolute URL to hi-res image -->
