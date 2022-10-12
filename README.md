@@ -35,7 +35,7 @@ Automagical css image gallery in [Hugo](https://gohugo.io/) using shortcodes, wi
 - Pretty captions appear/slide/fade upon hovering over the image 
 - Optionally make gallery images zoom, grow, shrink, slide up, or slide down upon hover
 - Only requires 3.6kB of CSS (unminified; you can minify it if you want)
-- CSS is automatically loaded the first time you use the `{{< figure >}}` shortcode on each page
+- [CSS](https://www.interviewbit.com/css-cheat-sheet/) is automatically loaded the first time you use the `{{< figure >}}` shortcode on each page
 
 ## PhotoSwipe Features
 
