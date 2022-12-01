@@ -17,7 +17,7 @@ $( document ).ready(function() {
 	var items = []; // array of slide objects that will be passed to PhotoSwipe()
 	// for every figure element on the page:
 	$('figure').each( function() {
-		if ($(this).attr('class') == 'no-photoswipe') return true; // ignore any figures where class="no-photoswipe"
+		if ($(this).hasClass('no-photoswipe')) return true; // ignore any figures where class contains "no-photoswipe"
 		// get properties from child a/img/figcaption elements,
 		var $figure = $(this),
 			$a 		= $figure.find('a'),
