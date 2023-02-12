@@ -61,6 +61,15 @@ Put files in following places:
 
 If you want, you could (depending on a front matter param) conditionally load `load-photoswipe.html` or its contents from the footer of your template.  But I've consciously chosen to load PhotoSwipe using a shortcode so that you don't have to modify your template if you don't want to.
 
+### Self-hosting the js and css libraries (GDPR compliance)
+
+if you want to self-host the jQuery and Photoswipe js and css libraries, you can do so by setting the `selfHosted` param to `true` in your site config file:
+
+```toml
+[params]
+  selfHosted = true
+```
+
 ## Theme integration
 
 Put files in the relevant folders within your theme.
