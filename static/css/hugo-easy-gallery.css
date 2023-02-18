@@ -9,7 +9,7 @@ Grid Layout Styles
 */
 .gallery {
     overflow: hidden;
-    margin: 10px;
+    margin: 1rem;
     max-width: 768px;
 }
 .gallery .box {
@@ -59,13 +59,17 @@ figure styles
 figure {
     position:relative; /* purely to allow absolution positioning of figcaption */
     overflow: hidden;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
 }
 .gallery figure {
     position: absolute;
-    left: 5px;
-    right: 5px;
-    top: 5px;
-    bottom: 5px;
+    left: .3rem;
+    right: .3rem;
+    top: .3rem;
+    bottom: .3rem;
 }
 .gallery.hover-effect-grow figure:hover {
     transform: scale(1.05);
@@ -74,10 +78,10 @@ figure {
     transform: scale(0.95);
 }
 .gallery.hover-effect-slidedown figure:hover {
-    transform: translateY(5px);
+    transform: translateY(.3rem);
 }
 .gallery.hover-effect-slideup figure:hover {
-    transform: translateY(-5px);
+    transform: translateY(-.3rem);
 }
 
 /*
@@ -132,11 +136,11 @@ figcaption styles
 .gallery.caption-position-center figcaption,
 .fancy-figure.caption-position-center figcaption {
     top: 0;
-    padding: 40% 5px;
+    padding: 40% .3rem;
 }
 .gallery.caption-position-bottom figcaption,
 .fancy-figure.caption-position-bottom figcaption {
-    padding: 5px;
+    padding: .3rem;
 }
 .gallery.caption-effect-fade figure:not(:hover) figcaption,
 .gallery.caption-effect-appear figure:not(:hover) figcaption,
